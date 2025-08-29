@@ -19,16 +19,7 @@
       "tooling"
     ]
   },
-  {
-    "title": "Jarvis 2.0 Chatbot",
-    "description": "Rasa + Electron. Voice, NLU, Offline-Fallback. Dockerized.",
-    "link": "https://github.com/R0tBart/jarvis-2.0",
-    "badge": "App",
-    "tags": [
-      "web",
-      "tooling"
-    ]
-  },
+ 
   {
     "title": "Netzwerkmonitor mit IDS",
     "description": "React-Frontend, Express-API, MongoDB. Echtzeit-Alerts.",
@@ -36,15 +27,6 @@
     "badge": "Web",
     "tags": [
       "web"
-    ]
-  },
-  {
-    "title": "JarvisAV",
-    "description": "Rust AV mit Heuristik, Signaturen, Quarantäne, Updater.",
-    "link": "https://github.com/R0tBart/jarvisav",
-    "badge": "Tooling",
-    "tags": [
-      "tooling"
     ]
   }
 ]
