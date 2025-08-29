@@ -3,92 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Christoph von Hagen | Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+  <title>Christoph von Hagen - Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500">
-  
-  <!-- Header -->
-  <header class="flex justify-between items-center p-6 shadow-lg sticky top-0 bg-white dark:bg-gray-900 z-50">
-    <h1 class="text-2xl font-bold">Christoph von Hagen</h1>
-    <nav class="space-x-6 hidden md:flex">
-      <a href="#about" class="hover:text-blue-500">Über mich</a>
-      <a href="#projects" class="hover:text-blue-500">Projekte</a>
-      <a href="#skills" class="hover:text-blue-500">Skills</a>
+<body>
+  <header>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#about">Über mich</a></li>
+        <li><a href="#projects">Projekte</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
     </nav>
-    <button id="themeToggle" class="ml-4 p-2 rounded-xl bg-gray-200 dark:bg-gray-700">
-      🌙
-    </button>
+    <div class="header-content">
+      <h1>Christoph von Hagen</h1>
+      <p>Systemadministrator & Frontend-Entwickler</p>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="text-center py-20">
-    <img src="assets/profilbild.jpg" alt="Profil" class="w-40 h-40 mx-auto rounded-full shadow-xl mb-6">
-    <h2 class="text-4xl font-bold mb-4">Hi, ich bin Christoph 👋</h2>
-    <p class="max-w-xl mx-auto text-lg">
-      Systemadministrator & Webentwickler mit Fokus auf moderne Cloud-Technologien, Security und DevOps.
-    </p>
-    <div class="mt-6 space-x-4">
-      <a href="https://github.com/cvonhagen" target="_blank"
-        class="px-4 py-2 bg-black text-white rounded-xl shadow hover:bg-gray-800">GitHub</a>
-      <a href="#projects"
-        class="px-4 py-2 bg-blue-500 text-white rounded-xl shadow hover:bg-blue-600">Meine Projekte</a>
+  <section id="about">
+    <h2>Über mich</h2>
+    <p>Ich bin Systemadministrator und Frontend-Entwickler mit Fokus auf pragmatische Lösungen.</p>
+    <img src="img/profil.jpg" alt="Profilfoto" class="profil-img">
+  </section>
+
+  <section id="projects">
+    <h2>Projekte</h2>
+    <div class="project">
+      <h3>Netzwerkmonitor</h3>
+      <p>React + Express + MongoDB – Echtzeitüberwachung.</p>
+    </div>
+    <div class="project">
+      <h3>Jarvis 2.0</h3>
+      <p>Rasa-Chatbot mit Sprachsteuerung und Electron-App.</p>
     </div>
   </section>
 
-  <!-- Über mich -->
-  <section id="about" class="max-w-4xl mx-auto py-16 px-6">
-    <h3 class="text-3xl font-bold mb-6 text-center">Über mich</h3>
-    <p class="text-lg leading-relaxed text-center">
-      Ich bin leidenschaftlicher IT-ler mit Schwerpunkt <strong>Cloud, Webentwicklung und Security</strong>. 
-      Neben meiner Weiterbildung bei Techstarter baue ich Projekte in Bereichen wie 
-      <em>Docker, Rasa-Chatbots, Netzwerksicherheit</em> und <em>moderne Web-Apps</em>.
-      Mein Ziel: praktische, zukunftsorientierte Lösungen mit Mehrwert entwickeln.
-    </p>
+  <section id="contact">
+    <h2>Kontakt</h2>
+    <ul>
+      <li>Email: <a href="mailto:cvonhagen03@gmail.com">cvonhagen03@gmail.com</a></li>
+      <li>GitHub: <a href="https://github.com/cvonhagen" target="_blank">cvonhagen</a></li>
+      <li>Ort: Hattingen, NRW, Deutschland</li>
+    </ul>
   </section>
 
-  <!-- Projekte -->
-  <section id="projects" class="bg-gray-100 dark:bg-gray-800 py-16">
-    <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-3xl font-bold mb-10 text-center">Projekte</h3>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white dark:bg-gray-700 p-6 rounded-2xl shadow hover:scale-105 transition">
-          <h4 class="text-xl font-semibold mb-2">Netzwerkmonitor + IDS</h4>
-          <p>React/Express App mit MongoDB & WebSockets zur Netzwerküberwachung.</p>
-        </div>
-        <div class="bg-white dark:bg-gray-700 p-6 rounded-2xl shadow hover:scale-105 transition">
-          <h4 class="text-xl font-semibold mb-2">Jarvis 2.0 Chatbot</h4>
-          <p>Rasa Chatbot mit Spracheingabe/-ausgabe, Electron App & Docker Deployment.</p>
-        </div>
-        <div class="bg-white dark:bg-gray-700 p-6 rounded-2xl shadow hover:scale-105 transition">
-          <h4 class="text-xl font-semibold mb-2">JarvisAV Antivirus</h4>
-          <p>Rust + Tauri: Echtzeit-Überwachung, Signatur & Heuristik, modernes UI.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="max-w-5xl mx-auto py-16 px-6">
-    <h3 class="text-3xl font-bold mb-10 text-center">Skills</h3>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-      <div class="p-4 rounded-xl bg-gray-100 dark:bg-gray-800 shadow">Docker</div>
-      <div class="p-4 rounded-xl bg-gray-100 dark:bg-gray-800 shadow">Kubernetes</div>
-      <div class="p-4 rounded-xl bg-gray-100 dark:bg-gray-800 shadow">React</div>
-      <div class="p-4 rounded-xl bg-gray-100 dark:bg-gray-800 shadow">Node.js</div>
-      <div class="p-4 rounded-xl bg-gray-100 dark:bg-gray-800 shadow">MongoDB</div>
-      <div class="p-4 rounded-xl bg-gray-100 dark:bg-gray-800 shadow">Azure / AWS</div>
-      <div class="p-4 rounded-xl bg-gray-100 dark:bg-gray-800 shadow">Security</div>
-      <div class="p-4 rounded-xl bg-gray-100 dark:bg-gray-800 shadow">CI/CD</div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="text-center py-8 bg-gray-200 dark:bg-gray-900">
-    <p>© 2025 Christoph von Hagen</p>
+  <footer>
+    <p>&copy; 2025 Christoph von Hagen</p>
   </footer>
 
+  <script src="js/script.js"></script>
 </body>
 </html>
