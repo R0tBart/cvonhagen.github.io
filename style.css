@@ -400,4 +400,9 @@ img {
   .contact {
     grid-template-columns: 1fr;
   }
+  /* Zusätzliche Styles für Feinheiten */
+html {
+  scroll-behavior: smooth;
+}
+
 }

@@ -5,75 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Christoph von Hagen – Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    // Darkmode Handling
-    if (localStorage.theme === 'dark' ||
-       (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
-  </script>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-500">
-  
-  <!-- Header -->
-  <header class="flex justify-between items-center max-w-5xl mx-auto px-6 py-4">
-    <h1 class="text-2xl font-bold">Christoph von Hagen</h1>
-    <button id="themeToggle" class="p-2 rounded-xl bg-gray-200 dark:bg-gray-700">
-      🌙
-    </button>
-  </header>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-500">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full backdrop-blur-md bg-white/70 dark:bg-gray-800/70 shadow z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">CvH</h1>
+      <div class="flex items-center gap-6">
+        <a href="#about" class="hover:text-blue-500">Über mich</a>
+        <a href="#projects" class="hover:text-blue-500">Projekte</a>
+        <a href="https://github.com/cvonhagen" target="_blank" class="hover:text-blue-500">GitHub</a>
+        <button id="themeToggle" class="ml-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700">
+          🌙
+        </button>
+      </div>
+    </div>
+  </nav>
 
   <!-- Hero -->
-  <section class="text-center py-16">
-    <img src="assets/profile.svg" alt="Profilbild" class="w-32 h-32 mx-auto rounded-full shadow-lg">
-    <h2 class="mt-6 text-4xl font-extrabold">Systemadmin & WebDev</h2>
-    <p class="mt-3 text-lg text-gray-500 dark:text-gray-400">Cloud • Security • Web</p>
-    <div class="mt-6 flex justify-center gap-4">
-      <a href="https://github.com/R0tBart" target="_blank" class="text-xl hover:text-blue-500">🐙 GitHub</a>
-      <a href="mailto:cvonhagen03@gmail.com" class="text-xl hover:text-blue-500">✉️ Mail</a>
+  <section class="h-screen flex flex-col justify-center items-center text-center px-4">
+    <h2 class="text-5xl md:text-7xl font-extrabold mb-6">Hallo, ich bin <span class="text-blue-500">Christoph</span></h2>
+    <p class="text-lg md:text-2xl text-gray-600 dark:text-gray-300 mb-8">
+      Systemadministrator & Webentwickler – spezialisiert auf moderne Cloud-Lösungen, Security & Frontend-Design.
+    </p>
+    <a href="#projects" class="px-6 py-3 bg-blue-500 text-white rounded-xl shadow hover:bg-blue-600 transition">Meine Projekte</a>
+  </section>
+
+  <!-- Über mich -->
+  <section id="about" class="py-20 max-w-5xl mx-auto px-6">
+    <h3 class="text-4xl font-bold mb-8 text-center">Über mich</h3>
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <img src="https://avatars.githubusercontent.com/u/123456?v=4" alt="Profilbild" class="rounded-2xl shadow-lg">
+      <p class="leading-relaxed text-lg">
+        Ich bin Christoph von Hagen, leidenschaftlicher Admin & Developer mit Fokus auf
+        **Cloud-Architekturen, Security und Automation**.  
+        Aktuell baue ich moderne Projekte in **Azure, AWS und Docker** und entwickle
+        **smarte Webapps** mit React, Tailwind und Node.js.  
+        Mein Ziel: **moderne, sichere und skalierbare Lösungen** schaffen.
+      </p>
     </div>
   </section>
 
   <!-- Projekte -->
-  <section class="max-w-5xl mx-auto px-6 py-12">
-    <h3 class="text-3xl font-bold mb-8 text-center">Projekte</h3>
-    <div id="projects" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
+  <section id="projects" class="py-20 bg-gray-100 dark:bg-gray-800">
+    <div class="max-w-6xl mx-auto px-6">
+      <h3 class="text-4xl font-bold mb-12 text-center">Projekte</h3>
+      <div id="projectsGrid" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <!-- wird von script.js dynamisch geladen -->
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer class="text-center py-6 border-t border-gray-300 dark:border-gray-700">
-    <p>&copy; 2025 Christoph von Hagen</p>
+  <footer class="py-6 text-center bg-gray-200 dark:bg-gray-900 text-gray-600 dark:text-gray-400">
+    © 2025 Christoph von Hagen – Powered by Tailwind
   </footer>
 
-  <script>
-    // Darkmode Toggle
-    document.getElementById('themeToggle').addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark');
-      if (document.documentElement.classList.contains('dark')) {
-        localStorage.theme = 'dark';
-      } else {
-        localStorage.theme = 'light';
-      }
-    });
-
-    // Projekte laden
-    fetch('projects.json')
-      .then(res => res.json())
-      .then(data => {
-        const container = document.getElementById('projects');
-        data.forEach(proj => {
-          const card = document.createElement('div');
-          card.className = "p-6 bg-white dark:bg-gray-800 shadow-lg rounded-2xl hover:scale-[1.02] transition";
-          card.innerHTML = `
-            <h4 class="text-xl font-semibold mb-2">${proj.title}</h4>
-            <p class="text-gray-600 dark:text-gray-400 mb-4">${proj.description}</p>
-            <a href="${proj.link}" target="_blank" class="inline-block text-blue-600 dark:text-blue-400 font-medium">🔗 Zum Projekt</a>
-          `;
-          container.appendChild(card);
-        });
-      });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

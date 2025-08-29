@@ -61,6 +61,11 @@ function render(filter = 'all') {
     `;
     grid.appendChild(card);
   });
+  const toggle = document.getElementById("themeToggle");
+    toggle.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+    toggle.textContent = document.documentElement.classList.contains("dark") ? "☀️" : "🌙";
+});
 }
 fetch('projects.json')
   .then(r => r.json())
