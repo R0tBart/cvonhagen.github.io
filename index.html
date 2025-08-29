@@ -4,14 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Christoph von Hagen – Portfolio</title>
+  <meta name="description" content="Portfolio von Christoph von Hagen: Systemadministration, Frontend, Cloud (Azure). Projekte, Skills, Kontakt.">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">CvH</div>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Hauptnavigation">
+      <div class="brand">
+        <span class="logo">CvH</span>
+        <button id="theme-toggle" class="icon-btn" aria-label="Theme umschalten">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.64 13A9 9 0 1 1 11 2.36 7 7 0 0 0 21.64 13Z"/></svg>
+        </button>
+      </div>
       <ul class="nav-links">
         <li><a href="#about">Über mich</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -19,57 +29,107 @@
         <li><a href="#contact">Kontakt</a></li>
       </ul>
     </nav>
+
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <h1 class="typing">Hey, ich bin <span>Christoph von Hagen</span></h1>
+        <p class="subtitle">Systemadmin und Frontend-Entwickler. Fokus: Azure, Automatisierung, sichere Webanwendungen.</p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn primary">Projekte ansehen</a>
+          <a href="#contact" class="btn ghost">Kontakt</a>
+        </div>
+        <img src="assets/profile.svg" alt="Profilfoto Christoph von Hagen" class="hero-avatar" loading="lazy">
+      </div>
+      <div class="hero-parallax" aria-hidden="true"></div>
+    </section>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Hey, ich bin <span>Christoph von Hagen</span></h1>
-      <p>Systemadministrator & Webentwickler mit Fokus auf moderne Cloud- und Frontend-Technologien.</p>
-      <a href="#projects" class="btn">Meine Projekte</a>
+  <main id="main">
+    <section id="about" class="section container">
+      <h2>Über mich</h2>
+      <p>Pragmatisch, gradlinig, lösungsorientiert. Ich baue robuste Systeme und UI mit schneller Delivery. Azure, Docker, Terraform, React, GitHub Actions. Sicherheit, Observability und Kosten im Blick.</p>
+      <ul class="quick-facts">
+        <li>📍 NRW, Deutschland</li>
+        <li>🛡️ Security-first (WAF, Hardening, Backups)</li>
+        <li>⚙️ IaC: Terraform, Bicep</li>
+        <li>🚀 CI/CD: GitHub Actions</li>
+      </ul>
+    </section>
+
+    <section id="skills" class="section container">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill"><span>Azure</span><div class="bar"><span style="--w:92%"></span></div></div>
+        <div class="skill"><span>Docker</span><div class="bar"><span style="--w:90%"></span></div></div>
+        <div class="skill"><span>React</span><div class="bar"><span style="--w:85%"></span></div></div>
+        <div class="skill"><span>Terraform/Bicep</span><div class="bar"><span style="--w:82%"></span></div></div>
+        <div class="skill"><span>Networking/Security</span><div class="bar"><span style="--w:88%"></span></div></div>
+      </div>
+    </section>
+
+    <section id="projects" class="section container">
+      <div class="section-head">
+        <h2>Projekte</h2>
+        <div class="filters" role="group" aria-label="Projektfilter">
+          <button class="chip active" data-filter="all">Alle</button>
+          <button class="chip" data-filter="azure">Azure</button>
+          <button class="chip" data-filter="web">Web</button>
+          <button class="chip" data-filter="tooling">Tooling</button>
+        </div>
+      </div>
+      <div id="projects-grid" class="grid"></div>
+    </section>
+
+    <section class="section container highlights">
+      <h2>Highlights</h2>
+      <div class="grid cols-3">
+        <article class="stat">
+          <div class="stat-num" data-count="9">0</div>
+          <div class="stat-label">Produktiv gesetzte Deployments</div>
+        </article>
+        <article class="stat">
+          <div class="stat-num" data-count="12">0</div>
+          <div class="stat-label">Automationen & Pipelines</div>
+        </article>
+        <article class="stat">
+          <div class="stat-num" data-count="5">0</div>
+          <div class="stat-label">Security-Härtungen & WAF-Regeln</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section container">
+      <h2>Kontakt</h2>
+      <div class="contact">
+        <form class="contact-form" action="mailto:cvonhagen03@gmail.com" method="post" enctype="text/plain">
+          <div class="row">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required>
+          </div>
+          <div class="row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required>
+          </div>
+          <div class="row">
+            <label for="msg">Nachricht</label>
+            <textarea id="msg" name="message" rows="4" required></textarea>
+          </div>
+          <button class="btn primary" type="submit">Senden</button>
+        </form>
+        <ul class="links">
+          <li><a href="mailto:cvonhagen03@gmail.com" class="link">E-Mail</a></li>
+          <li><a href="https://github.com/R0tBart" target="_blank" class="link">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/christophvonhagen" target="_blank" class="link">LinkedIn</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Christoph von Hagen • Built with HTML/CSS/JS • GitHub Pages</p>
     </div>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="section">
-    <h2>Über mich</h2>
-    <p>
-      Ich bin ein pragmatischer Entwickler und Admin, der moderne Infrastrukturen und
-      saubere Frontends liebt. Mein Schwerpunkt liegt auf Azure, Docker, React
-      und automatisierten Deployments.
-    </p>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="section">
-    <h2>Skills</h2>
-    <ul class="skills-list">
-      <li>⚡ Azure & Cloud-Infrastruktur</li>
-      <li>⚡ Docker & CI/CD Pipelines</li>
-      <li>⚡ React, JavaScript, HTML/CSS</li>
-      <li>⚡ Netzwerk & Security</li>
-    </ul>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="section">
-    <h2>Projekte</h2>
-    <div id="projects-container" class="projects-grid"></div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="section">
-    <h2>Kontakt</h2>
-    <p>Du kannst mich gerne erreichen über:</p>
-    <div class="contact-links">
-      <a href="mailto:cvonhagen03@gmail.com">📧 E-Mail</a>
-      <a href="https://github.com/R0tBart" target="_blank">💻 GitHub</a>
-      <a href="https://www.linkedin.com/in/christophvonhagen" target="_blank">🔗 LinkedIn</a>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Christoph von Hagen</p>
   </footer>
 </body>
 </html>

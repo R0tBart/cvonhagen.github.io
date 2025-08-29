@@ -1,32 +1,50 @@
 [
   {
-    "title": "Static Web App + Frontdoor + WAF",
-    "description": "Beispielprojekt für IHK: Sichere Bereitstellung einer Webanwendung mit globaler Absicherung (Front Door + WAF).",
+    "title": "Static Web App + Front Door + WAF",
+    "description": "Globale Bereitstellung mit Azure Front Door, WAF-Regeln, HTTPS, CI/CD.",
     "link": "https://github.com/R0tBart/azure-staticwebapp-frontdoor-waf",
-    "azure": true
+    "badge": "Azure",
+    "tags": [
+      "azure",
+      "web"
+    ]
   },
   {
     "title": "Hybrides Netzwerk mit VPN Gateway",
-    "description": "Zentrale IT in Deutschland, Exportstandort in Asien angebunden. Sichere Kommunikation und zentrales Management.",
+    "description": "On-Prem ↔ Azure via VPN Gateway. Sicheres Routing, Monitoring, IaC.",
     "link": "https://github.com/R0tBart/hybrid-network",
-    "azure": true
+    "badge": "Azure",
+    "tags": [
+      "azure",
+      "tooling"
+    ]
   },
   {
     "title": "Jarvis 2.0 Chatbot",
-    "description": "Persönlicher Chatbot mit Rasa, Electron-App und Sprachsteuerung. Darkmode, Dockerized, Desktop + Web.",
+    "description": "Rasa + Electron. Voice, NLU, Offline-Fallback. Dockerized.",
     "link": "https://github.com/R0tBart/jarvis-2.0",
-    "azure": false
+    "badge": "App",
+    "tags": [
+      "web",
+      "tooling"
+    ]
   },
   {
     "title": "Netzwerkmonitor mit IDS",
-    "description": "React-Frontend + Express-Backend + MongoDB. Echtzeit-Geräteüberwachung mit hybrider IDS.",
+    "description": "React-Frontend, Express-API, MongoDB. Echtzeit-Alerts.",
     "link": "https://github.com/R0tBart/network-monitor",
-    "azure": false
+    "badge": "Web",
+    "tags": [
+      "web"
+    ]
   },
   {
     "title": "JarvisAV",
-    "description": "Rust Antivirus mit Echtzeitüberwachung, Signatur- und Heuristikscan, Quarantäne, Updater & Logging.",
+    "description": "Rust AV mit Heuristik, Signaturen, Quarantäne, Updater.",
     "link": "https://github.com/R0tBart/jarvisav",
-    "azure": false
+    "badge": "Tooling",
+    "tags": [
+      "tooling"
+    ]
   }
 ]
