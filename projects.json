@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Static Web App + Frontdoor + WAF",
+    "description": "Beispielprojekt für IHK: Sichere Bereitstellung einer Webanwendung mit globaler Absicherung (Front Door + WAF).",
+    "link": "https://github.com/R0tBart/azure-staticwebapp-frontdoor-waf",
+    "azure": true
+  },
+  {
+    "title": "Hybrides Netzwerk mit VPN Gateway",
+    "description": "Zentrale IT in Deutschland, Exportstandort in Asien angebunden. Sichere Kommunikation und zentrales Management.",
+    "link": "https://github.com/R0tBart/hybrid-network",
+    "azure": true
+  },
+  {
+    "title": "Jarvis 2.0 Chatbot",
+    "description": "Persönlicher Chatbot mit Rasa, Electron-App und Sprachsteuerung. Darkmode, Dockerized, Desktop + Web.",
+    "link": "https://github.com/R0tBart/jarvis-2.0",
+    "azure": false
+  },
+  {
+    "title": "Netzwerkmonitor mit IDS",
+    "description": "React-Frontend + Express-Backend + MongoDB. Echtzeit-Geräteüberwachung mit hybrider IDS.",
+    "link": "https://github.com/R0tBart/network-monitor",
+    "azure": false
+  },
+  {
+    "title": "JarvisAV",
+    "description": "Rust Antivirus mit Echtzeitüberwachung, Signatur- und Heuristikscan, Quarantäne, Updater & Logging.",
+    "link": "https://github.com/R0tBart/jarvisav",
+    "azure": false
+  }
+]

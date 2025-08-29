@@ -1,13 +1,18 @@
-# Portfolio von Christoph von Hagen
+# Christoph von Hagen – Portfolio
 
-Persönliche Landing Page mit Projekten, Skills und Kontaktinformationen.
+Dies ist meine persönliche Landing Page.
 
-## Struktur
-- index.html
-- css/style.css
-- js/script.js
-- img/ (Bilder)
+## Features
+- Modernes, responsives Design
+- Projekte aus `projects.json` geladen
+- GitHub Actions Workflow für Deployment
 
-## Veröffentlichung
-- GitHub Repository
-- GitHub Pages Deployment
+## Deployment
+Dieses Projekt ist für GitHub Pages gedacht.
+
+1. Repository auf GitHub erstellen
+2. Dateien hochladen
+3. GitHub Actions Workflow kümmert sich um das Deployment
+
+---
+© 2025 Christoph von Hagen
