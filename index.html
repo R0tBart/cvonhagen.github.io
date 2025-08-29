@@ -5,66 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Christoph von Hagen – Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <div class="container header-content">
-      <img src="profile.png" alt="Profilbild" class="profile-pic">
-      <h1>Christoph von Hagen</h1>
-      <p>Systemadmin · WebDev Frontend · Cloud</p>
-      <nav>
-        <a href="#about">Über mich</a>
-        <a href="#projects">Projekte</a>
-        <a href="#contact">Kontakt</a>
-      </nav>
-    </div>
+    <nav class="navbar">
+      <div class="logo">CvH</div>
+      <ul class="nav-links">
+        <li><a href="#about">Über mich</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projekte</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main>
-    <section id="about" class="container">
-      <h2>Über mich</h2>
-      <p>
-        Ich bin Systemadministrator und Frontend-Webentwickler mit Fokus auf moderne Cloud- und Sicherheitslösungen.
-        Erfahrung mit Azure, Docker, Terraform und React.
-      </p>
-    </section>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Hey, ich bin <span>Christoph von Hagen</span></h1>
+      <p>Systemadministrator & Webentwickler mit Fokus auf moderne Cloud- und Frontend-Technologien.</p>
+      <a href="#projects" class="btn">Meine Projekte</a>
+    </div>
+  </section>
 
-    <section id="projects" class="container">
-      <h2>Projekte</h2>
-      <div id="project-list" class="grid"></div>
-    </section>
+  <!-- About -->
+  <section id="about" class="section">
+    <h2>Über mich</h2>
+    <p>
+      Ich bin ein pragmatischer Entwickler und Admin, der moderne Infrastrukturen und
+      saubere Frontends liebt. Mein Schwerpunkt liegt auf Azure, Docker, React
+      und automatisierten Deployments.
+    </p>
+  </section>
 
-    <section id="contact" class="container">
-      <h2>Kontakt</h2>
-      <ul>
-        <li>Email: <a href="mailto:cvonhagen03@gmail.com">cvonhagen03@gmail.com</a></li>
-        <li>GitHub: <a href="https://github.com/R0tBart" target="_blank">R0tBart</a></li>
-        <li>LinkedIn: <a href="#">Profil einfügen</a></li>
-      </ul>
-    </section>
-  </main>
+  <!-- Skills -->
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>⚡ Azure & Cloud-Infrastruktur</li>
+      <li>⚡ Docker & CI/CD Pipelines</li>
+      <li>⚡ React, JavaScript, HTML/CSS</li>
+      <li>⚡ Netzwerk & Security</li>
+    </ul>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section">
+    <h2>Projekte</h2>
+    <div id="projects-container" class="projects-grid"></div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <h2>Kontakt</h2>
+    <p>Du kannst mich gerne erreichen über:</p>
+    <div class="contact-links">
+      <a href="mailto:cvonhagen03@gmail.com">📧 E-Mail</a>
+      <a href="https://github.com/R0tBart" target="_blank">💻 GitHub</a>
+      <a href="https://www.linkedin.com/in/christophvonhagen" target="_blank">🔗 LinkedIn</a>
+    </div>
+  </section>
 
   <footer>
     <p>© 2025 Christoph von Hagen</p>
   </footer>
-
-  <script>
-    // Projekte laden
-    fetch("projects.json")
-      .then(res => res.json())
-      .then(data => {
-        const container = document.getElementById("project-list");
-        data.projects.forEach(proj => {
-          const card = document.createElement("div");
-          card.className = "card";
-          card.innerHTML = `
-            <h3>${proj.title}</h3>
-            <p>${proj.description}</p>
-            <a href="${proj.link}" target="_blank">Zum Projekt</a>
-          `;
-          container.appendChild(card);
-        });
-      });
-  </script>
 </body>
 </html>
