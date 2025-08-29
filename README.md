@@ -2,6 +2,9 @@
 
 Dies ist meine persönliche Landing Page.
 
+👉 Live: [https://cvonhagen.github.io](https://cvonhagen.github.io)  
+👉 GitHub: [https://github.com/cvonhagen](https://github.com/cvonhagen)
+
 ## Features
 - Modernes, responsives Design
 - Projekte aus `projects.json` geladen
