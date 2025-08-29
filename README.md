@@ -2,7 +2,7 @@
 
 Dies ist meine persönliche Landing Page.
 
-👉 Live: [https://cvonhagen.github.io](https://cvonhagen.github.io)  
+👉 Live: [https://cvonhagen.github.io/portfolio/](https://cvonhagen.github.io/portfolio/)  
 👉 GitHub: [https://github.com/cvonhagen](https://github.com/cvonhagen)
 
 ## Features
