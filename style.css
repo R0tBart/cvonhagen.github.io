@@ -106,6 +106,19 @@ body {
   color: var(--accent);
 }
 
+#cert-grid {
+  display: flex;           /* macht die Kinder horizontal */
+  flex-wrap: wrap;         /* neue Zeile, wenn nicht genug Platz ist */
+  gap: 60px;               /* Abstand zwischen den Karten */
+  justify-content: flex-start; /* oder center / space-around je nach Wunsch */
+}
+
+.cert-card {
+  text-align: center;      /* Bild und Text zentrieren */
+  width: 150px;            /* feste Breite der Karte */
+}
+
+
 /* Skills */
 .skills-list {
   list-style-type: none;
