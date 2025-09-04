@@ -3,9 +3,9 @@
 :root {
   --bg: #0a1628;
   --text: #e1f5fe;
-  --accent: #2196f3;
+  --accent: #2995ee;
   --card: #1565c0;
-  --gradient-1: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  --gradient-1: linear-gradient(135deg, #001f57 0%, #2a5298 100%);
   --gradient-2: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
   --gradient-3: linear-gradient(135deg, #01579b 0%, #0288d1 100%);
   --light-blue: #81d4fa;
@@ -121,14 +121,6 @@ body::after {
   transform: translateY(0);
 }
 
-.navbar.hidden {
-  transform: translateY(-100%);
-}
-
-.navbar.visible {
-  transform: translateY(0);
-}
-
 .nav-links {
   display: flex;
   gap: 1.5rem;
@@ -192,11 +184,11 @@ body::after {
   background: repeating-linear-gradient(
     45deg,
     transparent,
-    transparent 2px,
+    transparent 20px,
     rgba(255, 255, 255, 0.03) 2px,
     rgba(255, 255, 255, 0.03) 4px
   );
-  animation: heroPattern 20s linear infinite;
+  animation: heroPattern 50s linear infinite;
 }
 
 @keyframes heroPattern {
@@ -208,10 +200,27 @@ body::after {
   }
 }
 
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(10, 22, 40, 0.3) 50%,
+    rgba(10, 22, 40, 0.8) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+  z-index: 1;
+}
+
 .hero-content {
   position: relative;
   z-index: 2;
-  transition: opacity 0.1s ease-out, transform 0.1s ease-out;
+  transition: opacity 0.2s ease-out, transform 0.5s ease-out;
 }
 
 .hero-content h1 {
@@ -290,6 +299,18 @@ body::after {
 
 /* Sections */
 
+.profile-section {
+  padding: 2rem 0;
+  overflow: hidden;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .profile-img {
   display: block;
   margin: 1rem auto;
@@ -301,12 +322,33 @@ body::after {
   background: linear-gradient(135deg, #03a9f4 0%, #2196f3 50%, #1976d2 100%);
   padding: 1px;
   transition: all 0.3s ease;
-  animation: profileFloat 6s ease-in-out infinite;
+  animation: profileSlideIn 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards,
+    profileFloat 6s ease-in-out infinite 1.2s;
+  transform: translateX(-100vw);
 }
 
 .profile-img:hover {
-  transform: scale(1.1) rotate(5deg);
+  transform: translateX(0) scale(1.1) rotate(5deg);
   box-shadow: 0 20px 40px rgba(33, 150, 243, 0.4);
+  animation-play-state: paused;
+}
+
+@keyframes profileSlideIn {
+  0% {
+    transform: translateX(-100vw) scale(0.5) rotate(-45deg);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(20px) scale(1.1) rotate(5deg);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(-10px) scale(0.95) rotate(-2deg);
+  }
+  100% {
+    transform: translateX(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
 }
 
 @keyframes profileFloat {
@@ -326,6 +368,18 @@ body::after {
   opacity: 0;
   transform: translateY(20px);
   animation: slideInUp 0.8s ease-out forwards;
+  transition: all 0.6s ease-out;
+}
+
+.section.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#about {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .section:nth-child(even) {
@@ -591,12 +645,12 @@ body::after {
 .project-card a {
   margin-top: auto;
   align-self: flex-start;
-}
-
-.project-card a {
   color: #03a9f4;
   text-decoration: none;
   transition: color 0.3s ease;
+  position: relative;
+  z-index: 20;
+  pointer-events: auto;
 }
 
 .project-card a:hover {
@@ -605,36 +659,41 @@ body::after {
 
 .project-header {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 12px;
   margin-bottom: 1rem;
-  min-height: 60px;
+  min-height: auto;
 }
 
 .project-header h3 {
-  flex: 1;
-  margin-right: 1rem;
+  margin: 0;
   line-height: 1.3;
+  width: 100%;
 }
 
 .project-tech-logos {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  max-width: 120px;
+  flex-wrap: nowrap;
+  gap: 8px;
+  max-width: none;
+  width: 100%;
   opacity: 0;
   transform: translateX(20px);
   transition: all 0.3s ease;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .project-tech-logo {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   transition: all 0.3s ease;
   flex-shrink: 0;
   transform: scale(0) translateY(0) rotate(0deg);
   opacity: 0;
+  margin: 0 2px;
 }
 
 .project-tech-logo img {
@@ -651,7 +710,11 @@ body::after {
 }
 
 .project-card:hover .project-tech-logo {
-  animation: logoPopOut 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  animation: logoPopOut 0.6s ease-out forwards;
+  z-index: 5;
+  position: relative;
+  transform-origin: center center;
+  pointer-events: none;
 }
 
 .project-card:hover .project-tech-logo:nth-child(1) {
@@ -670,6 +733,28 @@ body::after {
   animation-delay: 0.4s;
 }
 
+.project-card:hover .project-tech-logo:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.project-card:hover .project-tech-logo:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+/* Optimiert für flüssige Performance */
+.project-card .project-tech-logo {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  pointer-events: none;
+  position: relative;
+  z-index: 5;
+}
+
+.project-card:not(:hover) .project-tech-logo {
+  animation: logoFallBack 0.4s ease-in forwards;
+}
+
 .project-tech-logo:hover {
   animation: logoFallOut 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards !important;
   z-index: 1000;
@@ -682,11 +767,11 @@ body::after {
     opacity: 0;
   }
   50% {
-    transform: scale(1.3) translateY(-8px) rotate(180deg);
+    transform: scale(2.5) translateY(20px) rotate(180deg);
     opacity: 1;
   }
   100% {
-    transform: scale(1) translateY(0) rotate(360deg);
+    transform: scale(1.5) translateY(8px) rotate(360deg);
     opacity: 1;
   }
 }
@@ -716,6 +801,17 @@ body::after {
     transform: scale(1.8) translateY(80px) rotate(60deg);
     filter: drop-shadow(0 35px 70px rgba(33, 150, 243, 0.3));
     opacity: 0.7;
+  }
+}
+
+@keyframes logoFallBack {
+  0% {
+    transform: scale(1.5) translateY(8px) rotate(360deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0) rotate(0deg);
+    opacity: 1;
   }
 }
 
@@ -964,9 +1060,8 @@ footer p {
   .falling-tech-logo {
     display: none;
   }
-}/
-* Reset Animation für fallende Logos */
-.project-tech-logo {
+}
+/ * Reset Animation für fallende Logos */ .project-tech-logo {
   animation-fill-mode: both;
 }
 

@@ -50,7 +50,8 @@ function getTechIcon(tech) {
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
     go: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg",
     vite: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg",
-    nodejs: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+    nodejs:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
   };
   return (
     icons[tech.toLowerCase()] ||
@@ -189,45 +190,61 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Parallax Effekt für Hero Section und Navbar Hide/Show
-  let lastScrollTop = 0;
+  // Parallax Effekt für Hero Section
   window.addEventListener("scroll", () => {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector(".hero");
     const heroContent = document.querySelector(".hero-content");
-    const navbar = document.querySelector(".navbar");
 
-    // Parallax für Hero Background
+    // Parallax für Hero Background (verbessert)
     if (hero) {
-      hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+      const parallaxSpeed = Math.min(scrolled * 0.4, window.innerHeight * 0.8);
+      hero.style.transform = `translateY(${parallaxSpeed}px)`;
+
+      // Zusätzlicher Overlay-Effekt beim Scrollen
+      const overlay = hero.querySelector(".hero-overlay");
+      if (overlay) {
+        const overlayOpacity = Math.min(0.7, scrolled / 400);
+        overlay.style.opacity = overlayOpacity;
+      }
     }
 
-    // Hero Content nach hinten verschwinden lassen
+    // Hero Content nach hinten verschwinden lassen (optimiert)
     if (heroContent) {
-      const opacity = Math.max(0, 1 - scrolled / 300);
-      const scale = Math.max(0.8, 1 - scrolled / 1000);
-      const translateY = scrolled * 0.3;
+      const opacity = Math.max(0, 1 - scrolled / 600);
+      const scale = Math.max(0.85, 1 - scrolled / 2000);
+      const translateY = scrolled * 0.15;
+      // Blur-Effekt: Math.min(MAX_BLUR, scrolled / SCROLL_DISTANCE)
+      const blur = Math.min(5, scrolled / 5);
 
       heroContent.style.opacity = opacity;
       heroContent.style.transform = `translateY(${translateY}px) scale(${scale})`;
-    }
-
-    // Navbar Hide/Show beim Scrollen
-    if (navbar) {
-      if (scrolled > lastScrollTop && scrolled > 100) {
-        // Scrolling down - hide navbar
-        navbar.classList.add("hidden");
-        navbar.classList.remove("visible");
-      } else {
-        // Scrolling up - show navbar
-        navbar.classList.remove("hidden");
-        navbar.classList.add("visible");
-      }
-      lastScrollTop = scrolled <= 0 ? 0 : scrolled;
+      heroContent.style.filter = `blur(${blur}px)`;
+      heroContent.style.transition = "filter 0.1s ease-out";
     }
   });
 
-  // Intersection Observer für Animationen
+  // Scroll-basierte Animationen für About Section
+  const aboutSection = document.querySelector("#about");
+  if (aboutSection) {
+    window.addEventListener("scroll", () => {
+      const scrolled = window.pageYOffset;
+      const aboutTop = aboutSection.offsetTop;
+      const windowHeight = window.innerHeight;
+
+      // About Section fade-in beim Scrollen
+      if (scrolled + windowHeight > aboutTop + 100) {
+        const progress = Math.min(
+          1,
+          (scrolled + windowHeight - aboutTop) / 300
+        );
+        aboutSection.style.opacity = progress;
+        aboutSection.style.transform = `translateY(${(1 - progress) * 30}px)`;
+      }
+    });
+  }
+
+  // Intersection Observer für andere Animationen
   const observerOptions = {
     threshold: 0.1,
     rootMargin: "0px 0px -50px 0px",
@@ -238,6 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (entry.isIntersecting) {
         entry.target.style.opacity = "1";
         entry.target.style.transform = "translateY(0)";
+        entry.target.classList.add("animate-in");
       }
     });
   }, observerOptions);
@@ -264,38 +282,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setTimeout(typeWriter, 1000);
   }
-
-  // Cursor Follower Effekt
-  const cursor = document.createElement("div");
-  cursor.className = "cursor-follower";
-  cursor.style.cssText = `
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background: radial-gradient(circle, rgba(51, 139, 240, 0.8) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.1s ease;
-  `;
-  document.body.appendChild(cursor);
-
-  document.addEventListener("mousemove", (e) => {
-    cursor.style.left = e.clientX - 10 + "px";
-    cursor.style.top = e.clientY - 10 + "px";
-  });
-
-  // Hover Effekte für interaktive Elemente
-  document
-    .querySelectorAll("a, button, .project-card, .cert-card")
-    .forEach((el) => {
-      el.addEventListener("mouseenter", () => {
-        cursor.style.transform = "scale(2)";
-      });
-      el.addEventListener("mouseleave", () => {
-        cursor.style.transform = "scale(1)";
-      });
-    });
 
   // Fallende Tech-Logos starten
   createFallingTechLogos();
