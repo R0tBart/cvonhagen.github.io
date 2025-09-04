@@ -3,18 +3,18 @@
     "title": "Static Web App + Frontdoor + WAF",
     "description": "Beispielprojekt für IHK: Sichere Bereitstellung einer Webanwendung mit globaler Absicherung (Front Door + WAF).",
     "link": "https://github.com/cvonhagen/testfirma",
-    "azure": true
+    "technologies": ["azure", "terraform", "docker"]
   },
   {
     "title": "Einfacher URL-Checker mit Node.js und Virentest (VirusTotal)",
     "description": "Ein modernes Tool zum gleichzeitigen Überprüfen vieler URLs über ein Web-Frontend. Ideal für SEO-Checks, Systemadministration oder Webmonitoring. Unterstützt Statuscode-Analyse, SSL-Validierung, Ladezeitmessung, DNS-Auflösung und VirusTotal-Sicherheitscheck .",
     "link": "https://github.com/cvonhagen/URL_Checker",
-    "azure": false
+    "technologies": ["docker", "node.js", "git"]
   },
   {
     "title": "TrustMe - Moderner Passwortmanager mit 2FA und Browser-Erweiterung",
     "description": "TrustMe ist ein moderner und sicherer Passwortmanger mit integrierter Zwei-Faktor-Autentifizierung (2FA) und einer paktischen Browser-Erweiterung.",
     "link": "https://github.com/cvonhagen/TrustMe",
-    "azure": false
+    "technologies": ["GO", "react", "docker"]
   }
 ]
